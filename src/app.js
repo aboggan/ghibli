@@ -42,11 +42,23 @@ function search(){
 }
 
 function createCard(movie){
+    let descripcion = movie.description.split(" ")
+    let primeraParte =""
+    let segundaParte=""
+    for (let index = 0; index < 20; index++) {
+        const palabra = descripcion[index];
+        primeraParte += palabra
+    }
+    for (let index = 20; index < descripcion.length; index++) {
+        const palabra = descripcion[index];
+        segundaParte+=palabra
+    }
     let cardHtml = `
         <div class="card " >
             <div class="card-body">
                 <h5 class="card-title">${movie.title}</h5>
-                <p class="card-text">${movie.description}</p>
+                <p class="card-text">${primeraParte}</p>
+                <p class="card-text">${segundaParte}</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>`
